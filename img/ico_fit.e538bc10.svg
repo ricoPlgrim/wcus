@@ -1,0 +1,15 @@
+<svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="straighten">
+<mask id="mask0_6220_59272" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="17">
+<rect id="Bounding box" width="20" height="17" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_6220_59272)">
+<rect id="Rectangle 145" x="3.5" y="4.5" width="13" height="8" stroke="#222222"/>
+<g id="Group 660">
+<path id="Vector 27" d="M7 4V9" stroke="#222222"/>
+<path id="Vector 28" d="M10 4V9" stroke="#222222"/>
+<path id="Vector 29" d="M13 4V9" stroke="#222222"/>
+</g>
+</g>
+</g>
+</svg>
