@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.search-wrap{
+	.result-wrap{
+		.title-wrap{
+			margin-bottom: toRem(20px);
+			padding: toRem(0 20px);
+		}
+		.nodata-wrap2{
+			margin: toRem(0 20px);
+			p{
+				margin-top: toRem(40px);
+			}
+		}
+	}
+}

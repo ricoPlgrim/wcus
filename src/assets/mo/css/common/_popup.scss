@@ -1,0 +1,1569 @@
+@charset "UTF-8";
+
+.dim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba($color: #000000, $alpha: 0.2);
+}
+
+.pop-wrap {
+    .btn-bottom-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: toRem(0 20px);
+        // @include safe(padding-bottom, bottom, 20px);
+        @include safe(padding-bottom, bottom);
+
+        a {
+            display: block;
+            width: 100%;
+            height: toRem(50px);
+            font-size: toRem(12px);
+            line-height: toRem(50px);
+            text-align: right;
+            color: $CTmain;
+
+            &.today {
+                color: $CTsub2;
+                text-align: left;
+            }
+        }
+    }
+
+    .btn-fixed-wrap {
+        margin: toRem(0 20px);
+        // @include safe(padding-bottom, bottom);
+        @include safe(padding-bottom, bottom, 30px);
+
+        .btn-type {
+            width: 100%;
+            // height: toRem(70px);
+            border-radius: 0;
+            font-size: toRem(20px);
+        }
+    }
+
+    .btn-wrap {
+        [class^="btn-type"] {
+            width: 100%;
+
+            &:nth-child(n + 2) {
+                margin: 0;
+            }
+        }
+    }
+
+}
+
+.pop-layer {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    width: 100%;
+    height: 100%;
+
+    >.pop-wrap {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 90%;
+        border-radius: toRem(17px);
+        background: #fff;
+        transform: translate(-50%, -50%);
+
+        .pop-content {
+            padding: toRem(40px 26px 30px);
+            text-align: center;
+            touch-action: pan-y;
+
+            .title {
+                font-size: toRem(18px);
+                font-weight: 500;
+                line-height: toRem(22px);
+                word-break: break-word;
+
+                &+p {
+                    margin-top: toRem(20px);
+                }
+            }
+
+            >p {
+                font-size: toRem(12px);
+                line-height: toRem(17px);
+                word-break: break-word;
+            }
+
+            &.v2 {
+                padding: 0;
+            }
+        }
+
+        .btn-wrap {
+            margin-top: 0;
+        }
+    }
+
+    &.is-visible {
+        visibility: visible;
+    }
+}
+
+.pop-full {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+
+    >.pop-wrap {
+        display: flex;
+        flex-flow: column;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+
+        .pop-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 30;
+            height: toRem(50px);
+            padding: toRem(0 15px 0 20px);
+            background-color: #fff;
+            @include safe(padding-top, top);
+
+            .title-type {
+                font-size: toRem(18px);
+                line-height: toRem(22px);
+            }
+        }
+
+        .pop-title2 {
+            @extend .pop-title;
+            background-color: $CTmain;
+
+            .title-type {
+                color: #fff;
+            }
+
+            .pop-close {
+                .ico-close {
+                    background-color: #fff;
+                }
+            }
+        }
+
+        .pop-content {
+            position: relative;
+            // display: flex;
+            // flex-flow: column;
+            flex-grow: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            // max-height: 600px;
+            padding: toRem(80px 20px 30px);
+            touch-action: pan-y;
+
+            &.bottom {
+                padding: toRem(80px 20px 100px);
+            }
+        }
+    }
+
+    &.is-visible {
+        visibility: visible;
+    }
+}
+
+.pop-bottom {
+    visibility: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+
+    >.pop-wrap {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        border-top-left-radius: toRem(17px);
+        border-top-right-radius: toRem(17px);
+        background-color: #fff;
+        // @include safe(padding-bottom, bottom);
+        padding-bottom: toRem(calc(0 - env(safe-area-inset-bottom)));
+        transform: translateY(100%);
+        transition: all 0.3s ease-in-out;
+
+        .pop-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 30;
+            width: 100%;
+            padding: toRem(15px 0);
+
+            &::before {
+                content: '';
+                display: block;
+                margin: 0 auto;
+                width: toRem(50px);
+                height: toRem(2px);
+                background-color: $CBg2;
+            }
+        }
+
+        .pop-content {
+            position: relative;
+            padding: toRem(34px 40px 20px);
+            text-align: center;
+            touch-action: pan-y;
+
+            >strong {
+                font-size: toRem(18px);
+                font-weight: 500;
+                line-height: toRem(24px);
+                word-break: break-word;
+
+                &+p {
+                    margin-top: toRem(20px);
+                }
+            }
+
+            >p {
+                font-size: toRem(12px);
+                line-height: toRem(18px);
+                word-break: break-word;
+            }
+
+            &.v2 {
+                padding: 0;
+
+                &::before {
+                    background-color: #fff;
+                }
+            }
+
+            .pop-title {
+                margin-bottom: toRem(20px);
+                text-align: left;
+            }
+        }
+
+        .btn-wrap {
+            margin-top: toRem(20px);
+        }
+    }
+
+    &.active {
+        .pop-wrap {
+            opacity: 1;
+            // visibility: visible;
+            transform: translateY(0)
+        }
+    }
+
+    &.is-visible {
+        visibility: visible;
+    }
+}
+
+.pop-option {
+    @extend .pop-bottom;
+
+    >.pop-wrap {
+        .pop-content {
+            &.option-wrap {
+                padding: toRem(34px 0 0);
+                text-align: left;
+
+                .option-inner {
+                    padding: toRem(0 20px);
+                    max-height: calc(100vh - toRem(168px));
+                    overflow: hidden;
+
+                    &>.form-wrap {
+                        padding: toRem(30px 0);
+                    }
+
+                    &>.option-cont {
+                        padding: toRem(30px 0);
+                        font-size: toRem(12px);
+                    }
+                }
+            }
+        }
+    }
+
+    &.open {
+        >.pop-wrap {
+            top: 0;
+            height: 100vh;
+            border-radius: 0;
+
+            .pop-content {
+                height: 100%;
+                padding: toRem(40px 0);
+
+                &.option-wrap {
+                    .option-inner {
+                        max-height: initial;
+                        height: 100%;
+                        // height: calc(100% - toRem(40px));
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.pop-select {
+    @extend .pop-option;
+
+    .pop-wrap {
+        @include safe(padding-bottom, bottom, 20px);
+
+        .pop-content {
+            &.option-wrap {
+                padding: toRem(34px 10px 0 0);
+                text-align: left;
+
+                .option-inner {
+                    margin-top: toRem(30px);
+                    padding: toRem(0 10px 0 20px);
+                    max-height: calc(100vh - toRem(168px));
+                    overflow: hidden;
+                    overflow-y: auto;
+
+                    .form-wrap {
+                        padding: toRem(0 0 20px);
+                    }
+
+                    &::-webkit-scrollbar {
+                        width: 2px;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: $CTmain;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background-color: $CBg2;
+                    }
+                }
+            }
+
+            .form-item {
+                &+.form-item {
+                    margin-top: toRem(20px);
+                }
+            }
+        }
+    }
+}
+
+.pop-swiper {
+    >.pop-wrap {
+        .pop-content {
+            display: block;
+            padding: toRem(40px 20px);
+            touch-action: pan-y;
+        }
+    }
+}
+
+.pop-close {
+    width: toRem(24px);
+    height: toRem(24px);
+    z-index: 10;
+
+    .ico-close {
+        display: block;
+        width: toRem(24px);
+        height: toRem(24px);
+        @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5.5 5.5L18.5 18.5M18.5 5.5L5.5 18.5' stroke='black'/%3E%3C/svg%3E");
+    }
+}
+
+.toast-box {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, toRem(50px));
+    z-index: -1;
+    width: toRem(90%);
+    height: toRem(50px);
+    padding: toRem(0 20px);
+    background-color: $CBrand;
+    font-size: toRem(14px);
+    line-height: toRem(50px);
+    color: #fff;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+
+    &.active {
+        opacity: 1;
+        z-index: 100;
+        transform: translate(-50%, toRem(-50px));
+    }
+}
+
+.pop-filter {
+    visibility: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100dvh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform .4s ease;
+
+    >.pop-wrap {
+        display: flex;
+        flex-flow: column;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+
+        .pop-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 30;
+            height: toRem(48px);
+            background-color: #fff;
+            @include safe(padding-top, top);
+
+            .title-type {
+                font-size: toRem(18px);
+                line-height: toRem(18px);
+            }
+        }
+
+        .pop-title2 {
+            @extend .pop-title;
+            background-color: $CTmain;
+            z-index: 55;
+
+            .title-type {
+                color: #fff;
+            }
+
+            .pop-close {
+                margin: toRem(0 8px);
+                width: toRem(40px);
+                height: toRem(40px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .ico-close {
+                    background-color: #fff;
+                }
+            }
+
+            .pop-action {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                button {
+                    background: rgba(0, 0, 0, 0);
+                    border: 0;
+                    color: #fff;
+                    font-size: toRem(12px);
+                    padding: toRem(0 20px);
+                    font-weight: 400;
+                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                }
+            }
+        }
+
+        .pop-tabs-wrapper {
+
+            width: 100%;
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: stretch;
+            z-index: 50;
+            padding-top: toRem(48px);
+        }
+
+        .pop-tabs-container {
+            flex: 1;
+            position: relative;
+
+            .pop-tabs-slider {
+                transition: transform .4s ease;
+                width: 200%;
+                display: flex;
+                align-items: stretch;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                transform: translate3d(0, 0, 0);
+
+                .pop-tabs-titles {
+                    width: 50%;
+                    position: relative;
+                    z-index: 1;
+                    flex: none;
+                    overflow-y: auto;
+                    padding: toRem(16px 0);
+
+                    .pop-tabs-title {
+                        display: block;
+                        padding: toRem(16px 20px);
+
+                        h4 {
+                            font-size: toRem(14px);
+                            line-height: toRem(21px);
+                            font-weight: 500;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            text-transform: uppercase;
+                            margin-bottom: 0;
+
+                            span {
+                                display: flex;
+                                align-items: center;
+                                line-height: toRem(21px);
+                               &.count-value{
+                                margin: toRem(0 20px);
+                                font-size: toRem(14px);
+                                font-weight: 400;
+                                line-height: toRem(21px);
+                                color: #777;
+                               }
+                            }
+
+                            .tabs-text {
+                                flex: 1;
+                            }
+                        }
+                    }
+                }
+
+                .pop-tabs-menus {
+                    flex: 1;
+                    display: flex;
+                    align-items: stretch;
+                    position: relative;
+                    z-index: 2;
+                    margin-top: toRem(-48px);
+
+                    .pop-tabs-content {
+                        width: 100%;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        flex: 1;
+                        display: flex;
+                        align-items: stretch;
+
+                        .content-list {
+                            width: 100%;
+
+                            >li {
+                                display: none;
+
+                                width: 100%;
+
+                                &.isopen {
+                                    display: block;
+                                }
+
+                                .content-header {
+                                    background-color: #000;
+                                    height: toRem(48px);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    position: sticky;
+                                    top: 0;
+                                    z-index: 10;
+
+                                    .pop-close {
+                                        margin: toRem(0 8px);
+                                        width: toRem(40px);
+                                        height: toRem(40px);
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+
+                                        .ico-close {
+                                            background-color: #fff;
+                                        }
+                                    }
+
+                                    >h3 {
+                                        flex: 1;
+                                        color: #fff;
+                                        font-size: toRem(18px);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: toRem(22px);
+                                        margin: 0;
+                                    }
+
+                                    .btn-clear {
+                                        background-color: rgba(0, 0, 0, 0);
+                                        border: 0;
+                                        box-shadow: none;
+                                        padding: 0;
+                                        width: toRem(40px);
+                                        height: toRem(40px);
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        font-weight: 400;
+                                        font-size: toRem(12px);
+                                        color: #fff;
+                                        margin: toRem(0 20px);
+                                    }
+                                }
+
+                                .content-area {
+                                    margin-top: toRem(20px);
+                                    overflow-y: auto;
+
+                                    h4 {
+                                        position: absolute;
+                                        width: 1px;
+                                        height: 1px;
+                                        clip: rect(0 0 0 0);
+                                        overflow: hidden;
+                                    }
+
+                                    .list_contents {
+                                        >ul {
+                                            >li {
+                                                >a {
+                                                    margin: 0;
+                                                    font-style: normal;
+                                                    font-weight: 400;
+                                                    font-size: toRem(14px);
+                                                    width: 100%;
+                                                    position: relative;
+
+                                                    span {
+                                                        display: block;
+                                                        padding: toRem(12px 12px 12px 20px);
+                                                    }
+
+                                                    .ico-arr2 {
+                                                        position: absolute;
+                                                        top: toRem(16px);
+                                                        right: toRem(28px);
+                                                    }
+
+                                                    .subDep {
+                                                        background-color: #fafafa;
+                                                        padding: toRem(12px 0);
+
+                                                        li {
+                                                            span {
+                                                                margin: 0;
+                                                                color: #000;
+                                                                font-style: normal;
+                                                                font-weight: 400;
+                                                                font-size: toRem(14px);
+                                                                cursor: pointer;
+                                                                display: inline-block;
+                                                                width: 100%;
+                                                                position: relative;
+                                                                border-bottom: 0;
+                                                                padding: toRem(8px 20px 8px 50px);
+
+                                                                &:before {
+                                                                    display: block;
+                                                                    content: "";
+                                                                    width: toRem(20px);
+                                                                    height: toRem(20px);
+                                                                    background: url("../images/icon/ico_checkbox.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                                    position: absolute;
+                                                                    top: 50%;
+                                                                    left: toRem(20px);
+                                                                    transform: translate3d(0, -50%, 0);
+                                                                    margin: auto;
+                                                                }
+
+                                                                &.checked {
+                                                                    &:before {
+                                                                        background: url("../images/icon/ico_checked.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    &.isOpen {
+                                                        .ico-arr2 {
+                                                            transform: rotate(180deg);
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                    }
+
+                                    &.brand {
+                                        margin-top: 0;
+                                        padding: toRem(20px);
+
+                                        .brand_contents {
+                                            height: calc(100vh - 48px - 100px);
+                                            overflow: hidden;
+                                            padding: 0;
+                                        }
+
+                                        form {
+                                            padding: 0;
+                                            position: sticky;
+                                            top: 0;
+                                            z-index: 1;
+
+                                            input {
+                                                height: toRem(40px);
+                                                border-radius: 0;
+                                                padding: toRem(0 16px);
+                                                font-size: toRem(12px);
+                                                color: #000;
+                                                background: none;
+                                                width: 100%;
+                                                line-height: toRem(18px);
+                                                border: solid 1px #dddfe2;
+                                                margin-bottom: toRem(16px);
+                                            }
+
+                                            .reset-button {
+                                                position: absolute;
+                                                padding: 0;
+                                                box-shadow: none;
+                                                background-color: #ddd;
+                                                border-color: #ddd;
+                                                border-radius: 50%;
+                                                width: 16px;
+                                                height: 16px;
+                                                top: 11px;
+                                                right: 38px;
+                                                background: url("../images/icon/ico_search_close.svg") center center no-repeat;
+                                            }
+
+                                            &:before {
+                                                display: block;
+                                                content: "";
+                                                position: absolute;
+                                                top: 11px;
+                                                right: 11px;
+                                                width: 16px;
+                                                height: 16px;
+                                                background: url("../images/icon/ico_search_b.svg") center center no-repeat;
+                                            }
+                                        }
+
+                                        .brands-category-container {
+                                            display: flex;
+                                            margin-bottom: toRem(30px);
+
+                                            >span {
+                                                display: block;
+                                                width: toRem(15px);
+                                                height: toRem(30px);
+                                                cursor: pointer;
+
+                                                &.prev {
+                                                    transform: translate3d(0, 1px, 0) rotate(90deg);
+                                                }
+
+                                                &.disabled {
+                                                    opacity: .2;
+                                                }
+                                            }
+
+                                            .brands-index {
+                                                overflow-x: auto;
+                                                overflow-y: hidden;
+                                                white-space: nowrap;
+                                                width: calc(100vw - 40px - 30px);
+                                                line-height: toRem(20px);
+
+                                                span {
+                                                    font-size: toRem(14px);
+                                                    display: inline-block;
+                                                    padding: toRem(5px 10px);
+                                                    position: relative;
+                                                    cursor: pointer;
+
+                                                    &:hover {
+                                                        background-color: rgba(227, 227, 227, .3);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .brands-cetegory-scrollbox {
+                                            ul {
+                                                max-height: none;
+                                                height: calc(100vh - 48px - 100px - 56px - 69px);
+                                                overflow-x: hidden;
+                                                overflow-y: auto;
+
+                                                &::-webkit-scrollbar {
+                                                    width: 2px;
+                                                    height: 2px;
+                                                }
+
+                                                &::-webkit-scrollbar-track {
+                                                    background: $CBg2;
+                                                }
+
+                                                &::-webkit-scrollbar-thumb {
+                                                    background: $CTmain;
+                                                }
+
+                                                li {
+                                                    cursor: pointer;
+                                                    position: relative;
+                                                    padding: toRem(16px 0 16px 36px);
+                                                    margin-bottom: 0;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    color: #777;
+                                                    font-size: toRem(14px);
+                                                    font-style: normal;
+                                                    font-weight: 400;
+                                                    line-height: toRem(21px);
+                                                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+                                                    &.header {
+                                                        padding: toRem(12px 0);
+                                                        cursor: default;
+
+                                                        span {
+                                                            color: #000;
+                                                            font-weight: bold;
+
+                                                            &:before {
+                                                                display: none;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    span {
+                                                        &:before {
+                                                            display: block;
+                                                            content: "";
+                                                            width: toRem(20px);
+                                                            height: toRem(20px);
+                                                            background: url("../images/icon/ico_checkbox.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                            position: absolute;
+                                                            top: 50%;
+                                                            transform: translate3d(0, -50%, 0);
+                                                            left: 0;
+                                                            margin: auto;
+                                                        }
+
+                                                        &.checked {
+                                                            &:before {
+                                                                background: url("../images/icon/ico_checked.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.cricle {
+                                        margin-top: 0;
+                                        padding: toRem(20px);
+
+                                        .cricle_list {
+                                            display: grid;
+                                            grid-template-columns: toRem(60px 60px 60px 60px);
+                                            justify-content: space-between;
+                                            align-items: flex-start;
+                                            align-content: flex-start;
+                                            flex-wrap: wrap;
+
+                                            li {
+                                                width: toRem(60px);
+                                                margin: toRem(6px 0);
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                position: relative;
+
+                                                .cricle_button {
+                                                    margin-bottom: toRem(18px);
+
+                                                    .cricle_box {
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: center;
+                                                        position: relative;
+                                                        padding: 0;
+                                                        width: toRem(60px);
+                                                        height: toRem(60px);
+                                                        border-radius: 100%;
+                                                        box-sizing: border-box;
+                                                        transition: padding .1s ease-in;
+                                                        overflow: hidden;
+                                                        border: 1px solid rgba(27, 27, 29, .1);
+
+                                                        .cricle_bg {
+                                                            display: inline-block;
+                                                            width: 100%;
+                                                            height: 100%;
+                                                            border-radius: 100%;
+                                                            box-sizing: border-box;
+                                                            background-position: center center;
+                                                            background-size: cover;
+                                                        }
+
+                                                        &:before {
+                                                            content: '';
+                                                            border-radius: 100%;
+                                                            display: none;
+                                                            justify-content: center;
+                                                            align-items: center;
+                                                            position: absolute;
+                                                            right: 0;
+                                                            bottom: 0;
+                                                            left: 0;
+                                                            top: 0;
+                                                        }
+
+                                                        &.white {
+                                                            .cricle_bg {
+                                                                border: 1px solid rgba(27, 27, 29, .1);
+                                                            }
+                                                        }
+
+                                                        &.clear {
+                                                            border: 1px solid rgba(27, 27, 29, .1);
+                                                        }
+                                                    }
+
+                                                    .name {
+                                                        display: block;
+                                                        text-align: center;
+                                                        text-transform: capitalize;
+                                                        word-break: normal;
+                                                        padding-top: toRem(5px);
+                                                        font-size: toRem(12px);
+                                                        font-weight: 400;
+                                                        line-height: toRem(17px);
+                                                    }
+
+                                                    img {
+                                                        width: auto;
+                                                    }
+
+                                                    &.disabled {
+                                                        opacity: .3;
+                                                        pointer-events: none;
+                                                    }
+                                                }
+
+                                                &.active {
+                                                    .cricle_button {
+                                                        .cricle_box {
+                                                            padding: toRem(4px);
+                                                            border: solid 2px #000;
+
+                                                            &:before {
+                                                                display: block;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.checkbox {
+                                        margin-top: 0;
+                                        padding: toRem(20px);
+
+                                        .size_contents {
+                                            .size_list {
+                                                overflow: visible;
+                                                max-height: none;
+                                                margin-bottom: toRem(20px);
+
+                                                li {
+                                                    cursor: pointer;
+                                                    position: relative;
+                                                    padding: toRem(16px 0 16px 36px);
+                                                    margin-bottom: 0;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    color: #777;
+                                                    font-size: toRem(14px);
+                                                    font-style: normal;
+                                                    font-weight: 400;
+                                                    line-height: toRem(21px);
+                                                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+                                                    &.disabled {
+                                                        color: #ddd;
+                                                        opacity: 1;
+                                                        cursor: default;
+
+                                                        &:before {
+                                                            background: url("../images/icon/ico_checkbox_disabled.svg")
+                                                        }
+                                                    }
+
+                                                    &:before {
+                                                        display: block;
+                                                        content: "";
+                                                        width: 20px;
+                                                        height: 20px;
+                                                        background: url("../images/icon/ico_checkbox.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                        position: absolute;
+                                                        top: 50%;
+                                                        left: 0;
+                                                        transform: translate3d(0, -50%, 0);
+                                                        margin: auto;
+                                                    }
+
+                                                    &.active {
+                                                        &:before {
+                                                            background: url("../images/icon/ico_checked.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                    }
+
+                                    &.radiobox {
+                                        margin-top: 0;
+                                        padding: toRem(20px);
+
+                                        .radio_contents {
+                                            ul {
+                                                overflow: visible;
+                                                max-height: none;
+                                                margin-bottom: toRem(20px);
+
+                                                li {
+                                                    cursor: pointer;
+                                                    position: relative;
+                                                    padding: toRem(16px 0 16px 36px);
+                                                    display: flex;
+                                                    align-items: center;
+                                                    color: #777;
+                                                    font-size: toRem(14px);
+                                                    font-weight: 400;
+                                                    line-height: toRem(21px);
+                                                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                                    &:before{
+                                                        content: "";
+                                                        display: block;
+                                                        width: toRem(20px);
+                                                        height: toRem(20px);
+                                                        background:url("../images/icon/ico_radio.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                        position: absolute;
+                                                        top: 50%;
+                                                        left: 0;
+                                                        transform: translate3d(0, -50%, 0); 
+                                                        margin: auto;
+                                                    }
+                                                    &.active{
+                                                        &:before{
+                                                            background:url("../images/icon/ico_radio_checked.svg");
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    &.range{
+                                        margin-top: 0;
+                                        padding: toRem(20px);
+                                        .range_contents{
+                                            padding: toRem(20px 12px);
+                                            .range_text{
+                                                font-size: toRem(14px);
+                                                font-weight: 400;
+                                                line-height: toRem(21px);
+                                                margin-bottom: toRem(24px);
+                                            }
+                                            .slider-horizontal{
+                                                height: toRem(4px);
+                                                .slider-base{
+                                                    border-radius: toRem(2px);
+                                                    background-color: #dddfe2;
+                                                    .slider-connect{
+                                                        background: #131314;
+                                                    }
+                                                    .slider-handle{
+                                                        border: solid 2px #fff;
+                                                        background-color: #131314;
+                                                        width: toRem(16px);
+                                                        height: toRem(16px);
+                                                        box-shadow: none;
+                                                    }
+                                                }
+                                            }
+
+                                            .price-range{
+                                                display: flex;
+                                                justify-content: space-between;
+                                                padding-top: toRem(28px);
+                                                span{
+                                                    font-size:toRem(14px);
+                                                }
+                                            }
+                                      
+                                        }
+                                        .price-filter{
+                                            .price_list{
+                                                overflow: visible;
+                                                max-height: none;
+                                                margin-bottom: toRem(20px);
+                                                li{
+                                                    display: block;
+                                                    cursor: pointer;
+                                                    position: relative;
+                                                    padding: toRem(16px 0 16px 36px);
+                                                    display: flex;
+                                                    align-items: center;
+                                                    color: #777;
+                                                    font-size: toRem(14px);
+                                                    font-style: normal;
+                                                    font-weight: 400;
+                                                    line-height: toRem(21px);
+                                                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                                    &:before{
+                                                        display: block;
+                                                        content: "";
+                                                        width: toRem(20px);
+                                                        height: toRem(20px);
+                                                        background: url("../images/icon/ico_checkbox.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                        position: absolute;
+                                                        top: 50%;
+                                                        left: 0;
+                                                        transform: translate3d(0, -50%, 0);
+                                                        margin: auto;
+                                                    }
+                                                    &.active{
+                                                        &:before{
+                                                            background: url("../images/icon/ico_checked.svg") rgba(0, 0, 0, 0) no-repeat center center;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.isSliderOpen {
+                    transform: translate3d(-50%, 0, 0);
+                }
+            }
+        }
+
+        .pop-footer {
+            padding: 0;
+            z-index: 10;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: toRem(0px -15px 30px 10px) rgba(255, 255, 255, 0);
+
+            .category-area {
+                background-color: #fafafa;
+                padding: toRem(15px 0);
+                overflow: visible;
+
+                .category-tag {
+                    display: flex;
+                    margin-right: toRem(5px);
+                    overflow: auto;
+                    padding: toRem(0 20px);
+
+                    .category-list {
+                        white-space: nowrap;
+
+                        li {
+                            padding: toRem(5px 13px);
+                            position: relative;
+                            margin-top: 0;
+                            margin-left: toRem(6px);
+                            font-size: toRem(12px);
+                            line-height: toRem(17px);
+                            display: inline-block;
+                            border: 1px solid #131314;
+                            padding-right: toRem(36px);
+                            border-radius: toRem(20px);
+                            background-color: #fff;
+
+                            .btn_close {
+                                content: "";
+                                display: block;
+                                width: toRem(12px);
+                                height: toRem(12px);
+                                position: absolute;
+                                top: 50%;
+                                right: toRem(12px);
+                                transform: translate3d(0, -50%, 0);
+                                background: url("../images/icon/ico_close.svg") center center no-repeat;
+                                opacity: .4;
+                            }
+
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.active {
+        transform: translateY(0);
+
+        .pop-wrap {
+            opacity: 1;
+        }
+    }
+
+    &.is-visible {
+        visibility: visible;
+    }
+
+    &.isSliderOpen {
+        >.pop-wrap {
+            .pop-title2 {
+                z-index: 30;
+            }
+        }
+    }
+
+}
+
+#pop-setting {
+    .pop-wrap {
+        .pop-content {
+            padding: toRem(50px 0 0);
+
+            .setting-box {
+                padding: toRem(30px 20px);
+                border-top: toRem(10px) solid $CBg4;
+
+                .title-box {
+                    position: relative;
+                    margin-bottom: toRem(20px);
+
+                    button {
+                        &::after {
+                            content: '';
+                            @include abs(v);
+                            right: toRem(0);
+                            @extend .ico-arr2;
+                            transform: rotate(-90deg);
+                        }
+                    }
+
+                    .title-type4 {
+                        font-weight: 500;
+                    }
+                }
+
+                .text-box {
+                    p {
+                        font-size: toRem(14px);
+                        line-height: toRem(21px);
+
+                        &.v2 {
+                            margin-top: toRem(10px);
+                            font-size: toRem(12px);
+                            line-height: toRem(18px);
+                            color: $CTsub2;
+                        }
+                    }
+
+                    &+.text-box {
+                        margin-top: toRem(20px);
+                    }
+                }
+
+                .btn-box {
+                    margin-top: toRem(10px);
+                    font-size: 0;
+
+                    a,
+                    button {
+                        display: inline-block;
+                        margin-right: toRem(20px);
+                        font-size: toRem(14px);
+                        line-height: toRem(21px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#pop-marketing {
+    .pop-wrap {
+        .pop-content {
+            padding: toRem(34px 40px 26px);
+            text-align: left;
+
+            >p {
+                margin-top: toRem(40px);
+
+                &.v2 {
+                    color: $CTsub2;
+                }
+            }
+
+            .img {
+                margin: toRem(40px 0);
+                text-align: center;
+            }
+
+            .btn-wrap {
+                display: block;
+                margin-top: toRem(40px);
+
+                [class^="btn-type"] {
+                    &:nth-child(n + 2) {
+                        margin-left: 0
+                    }
+                }
+
+                .btn-type4 {
+                    padding: toRem(20px 0);
+                }
+            }
+        }
+    }
+}
+
+#pop-img {
+    .pop-wrap {
+        .pop-content {
+            justify-content: center;
+        }
+    }
+}
+
+#pop-cookie {
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        background: rgba($color: #000000, $alpha: 0.2);
+    }
+
+    .dim {
+        display: none !important;
+    }
+
+    .pop-wrap {
+        .pop-content {
+            padding: toRem(34px 70px 20px);
+
+            .btn-type4 {
+                margin-top: toRem(20px);
+            }
+
+            .btn-type {
+                font-weight: 400;
+                font-size: toRem(14px);
+            }
+        }
+    }
+
+}
+
+#pop-gate {
+    z-index: 999;
+
+    .pop-wrap {
+        .pop-content {
+            padding: 0;
+            touch-action: pan-y;
+
+            // @include safe(padding-bottom, bottom, 50px);
+            .country-wrap {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                width: 100%;
+                height: 100vh;
+                padding-bottom: toRem(52px);
+                // background: url(../images/country/img_country.jpg) center center no-repeat;
+                background-size: cover;
+
+                .title-wrap {
+                    margin-bottom: 0;
+                    padding-bottom: toRem(2.5px);
+                    border-bottom: 1px solid #fff;
+
+                    p {
+                        margin: toRem(0 0 3px);
+                        color: $CTsub3;
+                    }
+
+                    button {
+                        position: relative;
+                        width: 100%;
+                        margin-top: toRem(8px);
+                        font-size: toRem(14px);
+                        color: #fff;
+                        text-align: left;
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            @extend .ico-arr2;
+                            background-color: #fff !important;
+                            position: absolute !important;
+                            top: 50%;
+                            right: 0;
+                            transform: translateY(-50%) rotate(0deg);
+                        }
+                    }
+
+                    &+p {
+                        padding: toRem(20px 0);
+                        border-top: toRem(1px) solid #fff;
+                        font-size: toRem(12px);
+                        line-height: toRem(17px);
+                        color: #fff;
+                        text-align: center;
+                    }
+                }
+
+                .country-btn {
+                    p {
+                        margin: toRem(20px 0);
+                        color: #fff;
+                        font-size: toRem(12px);
+                        text-align: center;
+                    }
+                }
+
+                .btn-wrap3 {
+                    .btn-type {
+                        background-color: #fff;
+                        border-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#pop-lnb {
+    .pop-wrap {
+        .pop-content {
+            padding: 0;
+        }
+    }
+}
+
+#pop-noti {
+    .pop-wrap {
+        .pop-content {
+            .ico-noti2 {
+                margin-bottom: toRem(10px);
+            }
+
+            .title {
+                &+p {
+                    margin-top: toRem(10px);
+                }
+            }
+        }
+    }
+}
+
+#pop-notice {
+    .pop-wrap {
+        background-color: transparent;
+
+        .btn-wrap {
+            background-color: #fff;
+        }
+    }
+}
+
+#pop-promotion {
+    .pop-wrap {
+        background-color: transparent;
+
+        .btn-bottom-wrap {
+            background-color: #fff;
+        }
+    }
+}
+
+

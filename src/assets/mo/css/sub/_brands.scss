@@ -1,0 +1,525 @@
+@charset "UTF-8";
+.content-wrap {
+    &.brands-wrap {
+        padding-top:0;
+    }
+}
+
+.sticky-box{
+    &.down,
+    &.up{
+        .menu-swiper{
+            &.v2{
+                margin-top:0;
+            }
+        }
+    }
+}
+
+
+.brands-wrap {
+    .list-wrap {
+        .brands-swiper {
+            height: toRem(211px);
+            img {
+                height: 100%;
+            }
+            .swiper-pagination-progressbar {
+                width: calc(100% - toRem(40px));
+                margin-top: toRem(-15px);
+                margin-left: toRem(20px);
+                background: rgba(238, 238, 238, .3);
+            }
+        }
+        .search-form {padding:toRem(30px 20px 0)}
+        
+        .swiper-contents{
+            width: 100%;
+            padding-left: toRem(15px);
+            overflow: hidden;
+            border-bottom: toRem(1px) solid $CBg2;
+            &.word{
+                border-bottom:0;
+            }
+        }
+        .menu-swiper {
+            overflow: visible;
+            margin-top: toRem(18px);
+            border-bottom: 0;
+            .swiper-slide {
+                height: toRem(46px);
+                a {
+                    padding: toRem(12px 0 13px);
+                    line-height: toRem(21px);
+                }
+            }
+        }
+        .word-swiper {
+            overflow: visible;
+            padding: toRem(20px 0 10px);
+            margin-top:0;
+            .swiper-slide{
+                height: toRem(30px);
+                a{ padding:0; border:0; margin:0; font-weight: 400;  line-height: toRem(15px); }
+            }
+         
+        }
+        .notification-text {
+            &+.brand-list {
+                margin-top: 0;
+            }
+        }
+        .brand-list {
+            margin-top: toRem(20px);
+        }
+        .nodata-wrap2, .login-wrap {
+            padding: toRem(120px 20px);
+        } 
+        .login-wrap {
+            text-align: center;
+            .title{
+                font-size: toRem(18px);
+                line-height: toRem(22px);
+                &+p{
+                    margin-top: toRem(10px);
+                }
+            }
+            p {
+                font-size: toRem(14px);
+                line-height: toRem(21px);
+            }
+            .btn-wrap {
+                margin-top: toRem(40px);
+                .btn-type {
+                    height: toRem(40px);
+                }
+            }
+        }
+
+    }
+
+    .detail-wrap {
+        .detail-top {
+            padding: toRem(40px 20px 30px);
+            border-bottom: toRem(1px) solid $CBg2;
+            background: #fff;
+            .top-title {
+                display: flex;
+                flex-wrap: no-wrap;
+                justify-content: space-between;
+                background: #fff; 
+                .tit {
+                    font-size: toRem(30px);
+                    max-width: calc(100% - toRem(41px));
+                    word-break: break-word;
+                    color: $CTmain;
+                    @include text-hidden($line: 2, $lineHeight: 33px, $auto: auto);
+                }
+    
+                .btn-wish{
+                    display: flex;
+                    padding: toRem(2px 0 1px);
+                    gap: toRem(3px);
+                    flex-direction: column-reverse;
+                    align-items: center;
+                    justify-content: start;
+                    min-width: toRem(26px);
+                    min-height: toRem(33px);
+                    .count {
+                        font-size: toRem(10px);
+                        line-height: toRem(10px);
+                        color: $CTsub;
+                    }
+                    &::after{
+                        content:'';
+                        display: block;
+                        @include svg(ico_like_off_v2, toRem(17px), toRem(17px));
+                        background-size: toRem(17px 17px);
+                    }
+                    &.active{
+                        &::after{
+                            content:'';
+                            @include svg(ico_like_on, toRem(17px), toRem(17px));
+                            background-size: toRem(17px 17px);
+                        }
+                    }
+                }
+            }
+
+            .sns-link {
+                margin-top: toRem(10px);
+                display: flex;
+                flex-wrap: wrap;
+                gap: toRem(5px);
+                width: 100%;
+                .sns-list {
+                    display: inline-flex;
+                    align-items: end;
+                    gap: toRem(3px);
+                    font-size: toRem(10px);
+                    line-height: toRem(10px);
+                    color: $CTsub3;
+                }
+                .ico-instagram {
+                    @include svg(ico_instagram, toRem(30px), toRem(30px));
+                }
+            }
+
+            .text-box {
+                position: relative;
+                margin-top: toRem(20px);
+                padding-bottom: toRem(10px);
+                .text {
+                    width: 100%;
+                    font-size: toRem(12px);
+                    line-height: toRem(17px);
+                }
+            }
+        }
+
+        .detail-scroll {
+            position: relative;
+            padding: toRem(0px 20px);
+            background: #fff;
+
+            .brand-img {
+                margin-top: toRem(-1px);
+            }
+
+            .brand-img, .brand-video, .brand-event, .plan-depth {
+                width: calc(100% + toRem(40px));
+                transform: translateX(toRem(-20px));
+            }
+        }
+
+        .scr-item {
+            padding: toRem(40px 0 0);
+            &:first-child {
+                padding-top: 0;
+            }
+            &.brand-tag {
+                padding-top: toRem(80px);
+            }
+        }
+
+        .plan-depth {
+            &::before {
+                display:none;
+            }
+            .product-top {
+                padding: toRem(18px 20px 17px);
+            }
+            .product-list {
+                margin-top: 0;
+                width: 100%;
+                transform: none;
+            }
+        }
+
+        .brand-event {
+            .swiper{
+                margin: toRem(40px 0);
+                .swiper-paging2{
+                    position: absolute;
+                    bottom: toRem(20px);
+                    right: toRem(20px);
+                    z-index: 1;
+                }
+            }
+        }
+
+        .brand-tag {
+            .tag-box {
+                display: block;
+                font-size: 0;
+                padding-top: toRem(10px);
+                width: calc(100% + toRem(4px));
+                transform:translateX(toRem(-4px));
+                li {
+                    display: inline-block;
+                    max-width: calc(100% - toRem(4px));
+                    margin-top: toRem(10px);
+                    margin-left: toRem(4px);
+                }
+            }
+            .tag-type2 {
+                @extend .tag-type;
+                display: inline-block;
+                max-width: 100%;
+                height: toRem(30px);
+                margin-right: toRem(0px);
+                padding: toRem(6px 12px 7px);
+                border: toRem(1px) solid $CBg2;
+                border-radius: toRem(20px);
+                font-size: toRem(12px);
+                line-height: toRem(17px);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                &.active{
+                    border-color: $CTmain
+                }
+            }
+        }
+    }
+
+    .brand-list {
+        padding: toRem(0 20px);
+        .tit {
+            padding: toRem(12px 0 11px);
+            font-size: toRem(14px);
+            line-height: toRem(21px);
+            font-weight: 500;
+            color: $CTmain;
+        }
+        .list-item {
+            li {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                height: toRem(44px);
+                .brand-tit {
+                    display: flex;
+                    .name {
+                        font-size: toRem(14px);
+                        font-weight: 400;
+                        line-height: toRem(21px);
+                        @include text-hidden-one();
+                        color: $CTmain;
+                    }
+                    .tag-list {
+                        display: flex;
+                        gap: toRem(4px 4px);
+                        margin-left: toRem(10px);
+                        .tag {
+                            display: block;
+                            width: max-content;
+                            padding: toRem(0 10px);
+                            height: toRem(21px);
+                            border: toRem(1px) solid $CTmain;
+                            font-size: toRem(12px);
+                            font-weight: 400;
+                            line-height: toRem(21px);
+                            color: $CTmain;
+                        }
+                    }
+                }
+                .btn-wish{
+                    display:flex;
+                    margin-left: toRem(7px);
+                    margin-right: toRem(-8px);
+                    padding: toRem(0 8px);
+                    align-items: center;
+                    justify-content: center;
+                    width:toRem(30px);
+                    height:toRem(30px);
+                    &::after{
+                        content:'';
+                        display: block;
+                        @include svg(ico_like_off, toRem(14px), toRem(14px));
+                    }
+                    &.active{
+                        &::after{
+                            content:'';
+                            @include svg(ico_like_on, toRem(14px), toRem(14px));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-wish-list {
+        margin-top: toRem(30px);
+        padding: toRem(0 20px);
+        .tit {
+            padding: toRem(12px 0 11px);
+            font-size: toRem(14px);
+            line-height: toRem(21px);
+            font-weight: 500;
+            color: $CTmain;
+        }
+        .list-item {
+            li {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                height: toRem(44px);
+                .brand-tit {
+                    display: flex;
+                    .name {
+                        font-size: toRem(14px);
+                        font-weight: 400;
+                        line-height: toRem(21px);
+                        @include text-hidden-one();
+                        color: $CTmain;
+                    }
+                    .tag-list {
+                        display: flex;
+                        gap: toRem(4px 4px);
+                        margin-left: toRem(10px);
+                        .tag {
+                            display: block;
+                            width: max-content;
+                            padding: toRem(0 10px);
+                            height: toRem(21px);
+                            border: toRem(1px) solid $CTmain;
+                            font-size: toRem(12px);
+                            font-weight: 400;
+                            line-height: toRem(21px);
+                            color: $CTmain;
+                        }
+                    }
+                }
+                .btn-wish{
+                    display:flex;
+                    margin-left: toRem(7px);
+                    margin-right: toRem(-8px);
+                    padding: toRem(0 8px);
+                    align-items: center;
+                    justify-content: center;
+                    width:toRem(30px);
+                    height:toRem(30px);
+                    &::after{
+                        content:'';
+                        display: block;
+                        @include svg(ico_like_off, toRem(14px), toRem(14px));
+                    }
+                    &.active{
+                        &::after{
+                            content:'';
+                            @include svg(ico_like_on, toRem(14px), toRem(14px));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .top-brand {
+        .top-brand-list {
+            margin-top: toRem(30px);
+            padding-left: toRem(20px);
+            .tit {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                height: toRem(44px);
+                a {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: toRem(17px);
+                    align-items: center;
+                    span {
+                        font-size: toRem(14px);
+                        line-height: toRem(21px);
+                        @include text-hidden-one();
+                        color: $CTmain;
+                    }
+                    .ico-arr2 {
+                        position:absolute;
+                        right: toRem(3px);
+                    }
+                    
+                }
+            }
+            .btn-wish{
+                display:flex;
+                margin-left: toRem(7px);
+                margin-right: toRem(12px);
+                padding: toRem(0 8px);
+                align-items: center;
+                justify-content: center;
+                width:toRem(30px);
+                height:toRem(30px);
+                &::after{
+                    content:'';
+                    display: block;
+                    @include svg(ico_like_off, toRem(14px), toRem(14px));
+                }
+                &.active{
+                    &::after{
+                        content:'';
+                        @include svg(ico_like_on, toRem(14px), toRem(14px));
+                    }
+                }
+            }
+        }
+    }
+
+    .special-brand {
+        padding: toRem(0 20px);
+        .special-brand-list {
+            margin-top: toRem(30px);
+            .tit {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                height: toRem(44px);
+                a {
+                    display:block;
+                    font-size: toRem(14px);
+                    line-height: toRem(21px);
+                    @include text-hidden-one();
+                    color: $CTmain;
+                }
+            }
+            .btn-wish{
+                display:flex;
+                margin-left: toRem(7px);
+                margin-right: toRem(-8px);
+                padding: toRem(0 8px);
+                align-items: center;
+                justify-content: center;
+                width:toRem(30px);
+                height:toRem(30px);
+                &::after{
+                    content:'';
+                    display: block;
+                    @include svg(ico_like_off, toRem(14px), toRem(14px));
+                }
+                &.active{
+                    &::after{
+                        content:'';
+                        @include svg(ico_like_on, toRem(14px), toRem(14px));
+                    }
+                }
+            }
+            .cnt {
+                .img-box {
+                    position: relative;
+                    overflow: hidden;
+                    display: block;
+                    margin-bottom: toRem(15px);
+                    height: toRem(188px);
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+                .text-box {
+                    display: flex;
+                    align-items: end;
+                    .text {
+                        width: 100%;
+                        font-size: toRem(12px);
+                        @include text-hidden($line: 3, $lineHeight: 17px, $auto: auto);
+                    }
+                    &.active {
+                        .text {
+                            overflow : auto;
+                            max-height: none;
+                            -webkit-line-clamp: initial;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

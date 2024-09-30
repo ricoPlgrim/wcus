@@ -1,0 +1,477 @@
+@charset "UTF-8";
+/* icon */
+[class^="ico-"] {
+    display: inline-block;
+    width: toRem(15px);
+    height: toRem(15px);
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+//css
+.ico-circle {
+    display: none;
+    width: toRem(3px);
+    height: toRem(3px);
+    border-radius: 50%;
+    background-color: $CBrand;
+}
+
+//background 처리
+.ico-logo{
+    display: block;
+    width: toRem(30px);
+    height: toRem(20px);
+    background-image: url("../../mo/images/logo.svg");
+}
+.ico-logo2{
+    width: toRem(30px);
+    height: toRem(30px);
+    background-image: url("../../mo/images/logo2.svg");
+}
+
+.ico-clear{
+    @include svg(ico_clear, toRem(16px), toRem(16px));
+}
+
+.ico-clear2{
+    @include svg(ico_clear2, toRem(16px), toRem(16px));
+}
+
+.ico-hide{
+    @include svg(ico_hide, toRem(16px), toRem(16px));
+}
+
+.ico-show{
+    @include svg(ico_show, toRem(16px), toRem(16px));
+}
+
+.ico-view{
+    @include svg(ico_view, toRem(12px), toRem(12px));
+}
+
+.ico-view2{
+    @include svg(ico_view2, toRem(12px), toRem(12px));
+}
+
+.ico-info{
+    @include svg(ico_info, toRem(17px), toRem(17px));
+}
+
+.ico-info2{
+    @include svg(ico_info2, toRem(17px), toRem(17px));
+}
+
+.ico-info3{
+    @include svg(ico_info3, toRem(14px), toRem(14px));
+}
+
+.ico-map{
+    @include svg(ico_map, toRem(22px), toRem(22px));
+}
+
+.ico-attention{
+    @include svg(ico_attention, toRem(120px), toRem(120px));
+}
+
+.ico-alarm{
+    @include svg(ico_alarm, toRem(24px), toRem(24px));
+}
+
+.ico-facebook{
+    @include svg(ico_facebook, toRem(30px), toRem(30px));
+}
+
+.ico-twitter{
+    @include svg(ico_twitter, toRem(30px), toRem(30px));
+}
+
+.ico-youtube{
+    @include svg(ico_youtube, toRem(30px), toRem(30px));
+}
+
+.ico-hongsha{
+    @include svg(ico_hongsha, toRem(30px), toRem(30px));
+}
+
+.ico-instagram{
+    @include svg(ico_instagram, toRem(30px), toRem(30px));
+}
+
+.ico-instagram2{
+    @include svg(ico_instagram2, toRem(11px), toRem(11px));
+}
+
+.ico-pinterest{
+    @include svg(ico_pinterest, toRem(30px), toRem(30px));
+}
+
+.ico-nodata{
+    @include svg(ico_nodata, toRem(20px), toRem(20px));
+}
+
+.ico-download{
+    @include svg(ico_download, toRem(14px), toRem(16px))
+}
+
+.ico-chat{
+    @include svg(ico_chat, toRem(20px), toRem(22px))
+}
+
+.ico-top{
+    @include svg(ico_top, toRem(15px), toRem(19px))
+}
+
+.ico-google{
+    @include svg(ico_google, toRem(18px), toRem(18px))
+}
+
+.ico-facebook2{
+    @include svg(ico_facebook2, toRem(18px), toRem(18px))
+}
+
+.ico-apple{
+    @include svg(ico_apple, toRem(18px), toRem(18px))
+}
+
+.ico-amazon{
+    @include svg(ico_amazon, toRem(18px), toRem(18px))
+}
+
+.ico-calendar{
+    @include svg(ico_calendar, toRem(15px), toRem(17px))
+}
+
+.ico-mem1{
+    @include svg(ico_mem1, toRem(40px), toRem(40px))
+}
+
+.ico-mem2{
+    @include svg(ico_mem2, toRem(40px), toRem(40px))
+}
+
+.ico-mem3{
+    @include svg(ico_mem3, toRem(40px), toRem(40px))
+}
+
+.ico-mem4{
+    @include svg(ico_mem4, toRem(40px), toRem(40px))
+}
+
+.ico-mem5{
+    @include svg(ico_mem5, toRem(40px), toRem(40px))
+}
+
+.ico-mem6{
+    @include svg(ico_mem6, toRem(40px), toRem(40px))
+}
+
+.ico-noti2{
+    @include svg(ico_noti2, toRem(52px), toRem(52px))
+}
+
+.ico-amazon2 {
+    @include svg(ico_amazon2, toRem(118px), toRem(32px))
+}
+
+.ico-paypal {
+    @include svg(ico_paypal, toRem(72px), toRem(19px))
+}
+
+.ico-master {
+    @include svg(ico_master, toRem(45px), toRem(32px))
+}
+
+.ico-visa {
+    @include svg(ico_visa, toRem(45px), toRem(32px))
+}
+
+.ico-card {
+    @include svg(ico_card, toRem(45px), toRem(32px))
+}
+
+.ico-url{
+    @include svg(ico_url, toRem(50px), toRem(50px));
+}
+
+.ico-pinterest2{
+    @include svg(ico_pinterest2, toRem(50px), toRem(50px));
+}
+
+.ico-google2{
+    @include svg(ico_google2, toRem(50px), toRem(50px));
+}
+
+.ico-facebook3{
+    @include svg(ico_facebook3, toRem(50px), toRem(50px));
+}
+
+.ico-fit{
+    @include svg(ico_fit, toRem(20px), toRem(17px));
+}
+
+.ico-email{
+    @include svg(ico_email, toRem(11px), toRem(11px));
+}
+
+.ico-like-off{
+    @include svg(ico_like_off, toRem(14px), toRem(14px));
+}
+
+.ico-like-on{
+    @include svg(ico_like_on, toRem(14px), toRem(14px));
+}
+
+.ico-benefit01 {
+	@include svg(ico_mem2, toRem(36px), toRem(36px));
+}
+
+.ico-benefit02 {
+	@include svg(ico_mem3, toRem(36px), toRem(36px));
+}
+
+
+//data url 처리(두께 변경 가능토록)
+.ico-arr {
+    position: relative;
+    width: toRem(12px);
+    height: toRem(20px);
+    @include svgUrl(#fff, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='20' viewBox='0 0 13 20' fill='none'%3E%3Cpath d='M12.3438 19.6188C8.74206 16.4649 5.2827 13.4344 1.65625 10.26L12.3438 0.381256' stroke='white'/%3E%3C/svg%3E");
+
+    &.right {
+        transform: rotate(180deg);
+    }
+    &.up {
+        transform: rotate(90deg);
+    }
+
+    &.down {
+        transform: rotate(-90deg);
+    }
+}
+
+.ico-arr2{
+    width: toRem(10px);
+    height: toRem(5px);
+    @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='black'/%3E%3C/svg%3E%0A");
+    &.right {
+        transform: rotate(-90deg);
+    }
+}
+
+.ico-arr3{
+    width: toRem(8px);
+    height: toRem(5px);
+    @include svgUrl(#777, $url: "data:image/svg+xml,%3Csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 6L9 1' stroke='%23777777'/%3E%3C/svg%3E%0A");
+    &.right {
+        transform: rotate(-90deg);
+    }
+}
+
+.ico-plus{
+    width: toRem(11px);
+    height: toRem(11px);
+    @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg width='11' height='11' viewBox='0 0 11 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect y='5' width='11' height='1' fill='black'/%3E%3Crect x='6' width='11' height='1' transform='rotate(90 6 0)' fill='black'/%3E%3C/svg%3E%0A");
+    &.v2{
+        width: toRem(5px);
+        height: toRem(5px);
+        background-color: #999;
+    }
+    &.v3{
+        width: toRem(10px);
+        height: toRem(10px);
+        background-color: #777;
+    }
+}
+
+.ico-minus{
+    width: toRem(10px);
+    height: toRem(10px);
+    @include svgUrl(#777, $url: "data:image/svg+xml,%3Csvg width='10' height='2' viewBox='0 0 10 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 1L-2.50326e-07 1' stroke='%23777777'/%3E%3C/svg%3E%0A")
+}
+
+.ico-close{
+    width: toRem(13px);
+    height: toRem(13px);
+    @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 0.561523L14 13.9458M14 0.561523L1 13.9458' stroke='black'/%3E%3C/svg%3E%0A");
+    &.v2{
+        width: toRem(8px);
+        height: toRem(8px);
+        background-color: $CTsub;
+    }
+}
+
+.ico-like {
+    width: toRem(14px);
+    height: toRem(14px);
+    @include svgUrl(#fff, $url: "data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.17217 1.52306L8.17232 1.5232L8.18141 1.51244C8.44925 1.19559 8.78371 0.940657 9.16145 0.765688C9.5392 0.590716 9.95098 0.5 10.3679 0.5C10.7848 0.5 11.1966 0.590716 11.5743 0.765688C11.9521 0.940657 12.2865 1.19559 12.5544 1.51244L12.5544 1.51245L12.5565 1.51496C13.1657 2.22605 13.5 3.1293 13.5 4.06268C13.5 4.99607 13.1657 5.89932 12.5565 6.61041L12.5565 6.6104L12.5534 6.61404L6.99965 13.2228L1.44658 6.61406L1.4466 6.61404L1.44349 6.61041C0.834274 5.89932 0.5 4.99607 0.5 4.06268C0.5 3.1293 0.834274 2.22605 1.44349 1.51496L1.44349 1.51496L1.44563 1.51244C1.71347 1.19559 2.04793 0.940657 2.42567 0.765688C2.80342 0.590716 3.2152 0.5 3.63211 0.5C4.04902 0.5 4.4608 0.590716 4.83855 0.765688C5.21629 0.940657 5.55075 1.19559 5.81859 1.51244L5.81845 1.51257L5.82768 1.52289L6.62686 2.41687L6.99945 2.83365L7.37223 2.41704L8.17217 1.52306Z' stroke='%23FF563F' stroke-miterlimit='10'/%3E%3C/svg%3E%0A");
+    &.v2{
+        width: toRem(18px);
+        height: toRem(18px);
+    }
+    &.v3 {
+        @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.17217 1.52306L8.17232 1.5232L8.18141 1.51244C8.44925 1.19559 8.78371 0.940657 9.16145 0.765688C9.5392 0.590716 9.95098 0.5 10.3679 0.5C10.7848 0.5 11.1966 0.590716 11.5743 0.765688C11.9521 0.940657 12.2865 1.19559 12.5544 1.51244L12.5544 1.51245L12.5565 1.51496C13.1657 2.22605 13.5 3.1293 13.5 4.06268C13.5 4.99607 13.1657 5.89932 12.5565 6.61041L12.5565 6.6104L12.5534 6.61404L6.99965 13.2228L1.44658 6.61406L1.4466 6.61404L1.44349 6.61041C0.834274 5.89932 0.5 4.99607 0.5 4.06268C0.5 3.1293 0.834274 2.22605 1.44349 1.51496L1.44349 1.51496L1.44563 1.51244C1.71347 1.19559 2.04793 0.940657 2.42567 0.765688C2.80342 0.590716 3.2152 0.5 3.63211 0.5C4.04902 0.5 4.4608 0.590716 4.83855 0.765688C5.21629 0.940657 5.55075 1.19559 5.81859 1.51244L5.81845 1.51257L5.82768 1.52289L6.62686 2.41687L6.99945 2.83365L7.37223 2.41704L8.17217 1.52306Z' stroke='%23FF563F' stroke-miterlimit='10'/%3E%3C/svg%3E%0A");
+    }
+}
+.btn-wish{
+    &.active{
+        .ico-like{
+            @include svgUrl($CBrand, $url: "data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.17217 1.52306L8.17232 1.5232L8.18141 1.51244C8.44925 1.19559 8.78371 0.940657 9.16145 0.765688C9.5392 0.590716 9.95098 0.5 10.3679 0.5C10.7848 0.5 11.1966 0.590716 11.5743 0.765688C11.9521 0.940657 12.2865 1.19559 12.5544 1.51244L12.5544 1.51245L12.5565 1.51496C13.1657 2.22605 13.5 3.1293 13.5 4.06268C13.5 4.99607 13.1657 5.89932 12.5565 6.61041L12.5565 6.6104L12.5534 6.61404L6.99965 13.2228L1.44658 6.61406L1.4466 6.61404L1.44349 6.61041C0.834274 5.89932 0.5 4.99607 0.5 4.06268C0.5 3.1293 0.834274 2.22605 1.44349 1.51496L1.44349 1.51496L1.44563 1.51244C1.71347 1.19559 2.04793 0.940657 2.42567 0.765688C2.80342 0.590716 3.2152 0.5 3.63211 0.5C4.04902 0.5 4.4608 0.590716 4.83855 0.765688C5.21629 0.940657 5.55075 1.19559 5.81859 1.51244L5.81845 1.51257L5.82768 1.52289L6.62686 2.41687L6.99945 2.83365L7.37223 2.41704L8.17217 1.52306Z' fill='%23FF563F' stroke='%23FF563F' stroke-miterlimit='10'/%3E%3C/svg%3E%0A");
+            &.v3 {
+                @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.17217 1.52306L8.17232 1.5232L8.18141 1.51244C8.44925 1.19559 8.78371 0.940657 9.16145 0.765688C9.5392 0.590716 9.95098 0.5 10.3679 0.5C10.7848 0.5 11.1966 0.590716 11.5743 0.765688C11.9521 0.940657 12.2865 1.19559 12.5544 1.51244L12.5544 1.51245L12.5565 1.51496C13.1657 2.22605 13.5 3.1293 13.5 4.06268C13.5 4.99607 13.1657 5.89932 12.5565 6.61041L12.5565 6.6104L12.5534 6.61404L6.99965 13.2228L1.44658 6.61406L1.4466 6.61404L1.44349 6.61041C0.834274 5.89932 0.5 4.99607 0.5 4.06268C0.5 3.1293 0.834274 2.22605 1.44349 1.51496L1.44349 1.51496L1.44563 1.51244C1.71347 1.19559 2.04793 0.940657 2.42567 0.765688C2.80342 0.590716 3.2152 0.5 3.63211 0.5C4.04902 0.5 4.4608 0.590716 4.83855 0.765688C5.21629 0.940657 5.55075 1.19559 5.81859 1.51244L5.81845 1.51257L5.82768 1.52289L6.62686 2.41687L6.99945 2.83365L7.37223 2.41704L8.17217 1.52306Z' fill='%23FF563F' stroke='%23FF563F' stroke-miterlimit='10'/%3E%3C/svg%3E%0A");
+            }
+        }
+    }
+}
+
+.ico-star{
+    width: toRem(13px);
+    height: toRem(13px);
+    @include svgUrl(#ddd, $url: "data:image/svg+xml,%3Csvg width='13' height='12' viewBox='0 0 13 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.53844 0L7.98915 4.49139H12.6837L8.88574 7.26722L10.3364 11.7586L6.53844 8.98278L2.74045 11.7586L4.19115 7.26722L0.393155 4.49139H5.08774L6.53844 0Z' fill='%23DDDDDD'/%3E%3C/svg%3E%0A");
+    &.v2{
+        background-color: $CTmain
+    }
+}
+.ico-star2{
+    width: toRem(22px);
+    height: toRem(20px);
+    @include svgUrl(#ddd, $url: "data:image/svg+xml,%3Csvg width='13' height='12' viewBox='0 0 13 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.53844 0L7.98915 4.49139H12.6837L8.88574 7.26722L10.3364 11.7586L6.53844 8.98278L2.74045 11.7586L4.19115 7.26722L0.393155 4.49139H5.08774L6.53844 0Z' fill='%23DDDDDD'/%3E%3C/svg%3E%0A");
+    &.v2{
+        background-color: $CTmain
+    }
+}
+.ico-star-half{
+    width: toRem(6.5px);
+    height: toRem(13px);
+    @include svgUrl(#ddd, $url: "data:image/svg+xml,%3Csvg width='7' height='12' viewBox='0 0 7 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.7637 0.00488132L5.31458 4.49138H0.619992L4.41799 7.26721L2.96728 11.7586L6.7637 8.98393V0.00488132Z' fill='black'/%3E%3C/svg%3E%0A")
+}
+
+.ico-star3{
+    width: toRem(33px);
+    height: toRem(33px);
+    @include svgUrl(#ddd, $url: "data:image/svg+xml,%3Csvg width='33' height='33' viewBox='0 0 33 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.4231 0L20.1103 11.4012H32.0423L22.3891 18.4476L26.0763 29.8488L16.4231 22.8024L6.76983 29.8488L10.457 18.4476L0.803802 11.4012H12.7359L16.4231 0Z' fill='black'/%3E%3C/svg%3E%0A");
+    &.v2{
+        background-color: $CTmain
+    }
+}
+
+.ico-search{
+    width: toRem(24px);
+    height: toRem(24px);
+    @include svgUrl(#fff, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M10.7426 16.7002C15.0187 16.7002 18.4851 13.3423 18.4851 9.2002C18.4851 5.05806 15.0187 1.7002 10.7426 1.7002C6.46647 1.7002 3 5.05806 3 9.2002C3 13.3423 6.46647 16.7002 10.7426 16.7002Z' stroke='white' stroke-miterlimit='10'/%3E%3Cpath d='M21 21.7001L15.1667 15.2988' stroke='white' stroke-miterlimit='10'/%3E%3C/svg%3E")
+}
+
+.ico-search2{
+    width: toRem(16px);
+    height: toRem(16px);
+    @include svgUrl(#fff, $url: "data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.499935 6.73685C0.499935 10.1638 3.39015 12.9737 6.99545 12.9737C10.6007 12.9737 13.491 10.1638 13.491 6.73685C13.491 3.30992 10.6007 0.5 6.99545 0.5C3.39015 0.5 0.499935 3.30992 0.499935 6.73685Z' stroke='black'/%3E%3Cpath d='M15 15.4127C13.7835 14.107 12.6148 12.8523 11.3901 11.5381' stroke='black'/%3E%3C/svg%3E%0A")
+}
+
+.ico-cart{
+    width: toRem(24px);
+    height: toRem(24px);
+    @include svgUrl(#fff, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M18.0339 21.5H5.95971L3 6.46875H21L18.0339 21.5Z' stroke='white' stroke-miterlimit='10'/%3E%3Cpath d='M8.12634 10.1312L11.9693 1.5L15.7455 10.0312' stroke='white' stroke-miterlimit='10'/%3E%3C/svg%3E");
+}
+
+.ico-help{
+    width: toRem(12px);
+    height: toRem(12px);
+    @include svgUrl(#aaa, $url: "data:image/svg+xml,%3Csvg width='11' height='11' viewBox='0 0 11 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='5.5' width='3' height='5' stroke='%23626164'/%3E%3Cpath d='M7.71739 4.88889V5.38889H8.21739H10.5V10.5H3.5V5.63233L6.26145 0.780618L7.71739 2.05963V4.88889Z' stroke='%23626164'/%3E%3C/svg%3E%0A");
+    &.v2{
+        background-color: #222;
+    }
+}
+
+.ico-menu{
+    width: toRem(24px);
+    height: toRem(24px);
+    @include svgUrl(#999, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath d='M3.5 2.5H21.5' stroke='%23999999' stroke-miterlimit='10'/%3E%3Cpath d='M6.40186 12H18.5429' stroke='%23999999' stroke-miterlimit='10'/%3E%3Cpath d='M3.5 21.5H21.5' stroke='%23999999' stroke-miterlimit='10'/%3E%3C/svg%3E");
+}
+
+.ico-heart{
+    width: toRem(24px);
+    height: toRem(24px);
+    @include svgUrl(#999, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath d='M20.636 3.86384C22.4338 5.99479 22.4338 9.44979 20.636 11.5821L19.0182 13.5005L12.5078 21.2188L5.99741 13.5005L4.37963 11.5835C2.58179 9.45115 2.58179 5.99479 4.37963 3.86384C6.17747 1.73289 9.09354 1.73289 10.8914 3.86384L12.5078 5.77952L14.1242 3.86384C15.9221 1.73289 18.8382 1.73289 20.636 3.86384Z' stroke='%23999999' stroke-miterlimit='10'/%3E%3C/svg%3E");
+}
+
+.ico-home{
+    width: toRem(24px);
+    height: toRem(24px);
+    @include svgUrl(#999, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath d='M15.4571 21.5H21.5V8.125L12.5 1.5L3.5 8.125V21.5H9.54286L12.5 18.25L15.4571 21.5Z' stroke='white' stroke-miterlimit='10'/%3E%3Cpath d='M12.5 14.8428V18.2503' stroke='white' stroke-miterlimit='10'/%3E%3C/svg%3E");
+    &.v2{
+        background-color: #fff;
+    }
+}
+
+.ico-my{
+    width: toRem(24px);
+    height: toRem(24px);
+    @include svgUrl(#999, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath d='M12.5 8.14577C14.3953 8.14577 15.9317 6.65806 15.9317 4.82288C15.9317 2.98771 14.3953 1.5 12.5 1.5C10.6048 1.5 9.06836 2.98771 9.06836 4.82288C9.06836 6.65806 10.6048 8.14577 12.5 8.14577Z' stroke='%23999999' stroke-miterlimit='10'/%3E%3Cpath d='M12.5 11.4688L3.5 16.5057V21.5001H21.5V16.5057L12.5 11.4688Z' stroke='%23999999' stroke-miterlimit='10'/%3E%3C/svg%3E");
+}
+
+.ico-brand{
+    width: toRem(24px);
+    height: toRem(24px);
+    @include svgUrl(#999, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath d='M20.0686 4.9089L17.4421 1.3125L13.1304 2.00316L9.21311 2.54165L3.21204 16.883L15.8657 21.9219L21.8586 7.54929L20.0686 4.9089Z' stroke='%23999999' stroke-miterlimit='10'/%3E%3Cpath d='M16.5245 6.52494C17.0887 5.9856 17.103 5.12458 16.5566 4.60181C16.0101 4.07903 15.1097 4.09247 14.5455 4.63182C13.9812 5.17117 13.9669 6.03219 14.5134 6.55496C15.0599 7.07773 15.9603 7.06429 16.5245 6.52494Z' stroke='%23999999' stroke-miterlimit='10'/%3E%3C/svg%3E");
+}
+
+.ico-star{
+    width: toRem(13px);
+    height: toRem(13px);
+    @include svgUrl(#ddd, $url: "data:image/svg+xml,%3Csvg width='13' height='12' viewBox='0 0 13 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.53844 0L7.98915 4.49139H12.6837L8.88574 7.26722L10.3364 11.7586L6.53844 8.98278L2.74045 11.7586L4.19115 7.26722L0.393155 4.49139H5.08774L6.53844 0Z' fill='%23DDDDDD'/%3E%3C/svg%3E%0A");
+    &.v2{
+        background-color: $CTmain
+    }
+}
+
+.ico-filter{
+    width: toRem(12px);
+	height: toRem(11px);
+    @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 8.50018H2V7.50018H0L0 8.50018ZM4 8.50018H12V7.50018L4 7.50018V8.50018ZM8 2.50012V3.50012L0 3.50012L0 2.50012L8 2.50012ZM12 2.50012H10V3.50012H12V2.50012Z' fill='black'/%3E%3Ccircle cx='9' cy='3' r='1.5' stroke='black'/%3E%3Ccircle cx='3' cy='8' r='1.5' stroke='black'/%3E%3C/svg%3E");
+}
+
+.ico-sort{
+    width: toRem(12px);
+	height: toRem(11px);
+    @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.69889 7.48634L4.04941 9.10702L4.04941 0.00014019H3.04941L3.04941 9.1072L1.39974 7.48634L0.69889 8.19965L3.19889 10.656L3.54932 11.0003L3.89974 10.656L6.39974 8.19965L5.69889 7.48634ZM6.40002 3.51396L8.04951 1.89327L8.04951 11.0001H9.04951L9.04951 1.8931L10.6992 3.51396L11.4 2.80065L8.90002 0.3443L8.5496 -7.62939e-06L8.19917 0.3443L5.69917 2.80065L6.40002 3.51396Z' fill='black'/%3E%3C/svg%3E%0A");
+}
+
+.ico-share{
+    width: toRem(20px);
+	height: toRem(20px);
+    @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='19' viewBox='0 0 17 19' fill='none'%3E%3Ccircle cx='3.5' cy='3.5' r='3' transform='matrix(4.76637e-08 -1 -1 -4.00868e-08 7 13)' stroke='black'/%3E%3Ccircle cx='3.5' cy='3.5' r='3' transform='matrix(4.76637e-08 -1 -1 -4.00868e-08 17 19)' stroke='black'/%3E%3Ccircle cx='3.5' cy='3.5' r='3' transform='matrix(-1 5.24537e-08 1.45705e-07 1 16.8584 0)' stroke='black'/%3E%3Cpath d='M11 5.5L6 8M6 11L11 14' stroke='black'/%3E%3C/svg%3E");
+    &.v2{
+        width: toRem(18px);
+	    height: toRem(19px);
+        background-color: #fff;
+    }
+}
+
+.ico-play{
+    width: toRem(12px);
+	height: toRem(12px);
+    @include svgUrl(#000, $url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 12L3 0L6.75 3.375L9.75 6L6.75 8.625L3 12Z' fill='black'/%3E%3C/svg%3E");
+    &.v2{
+        background-color: #fff;
+        width: toRem(16px);
+        height: toRem(16px);
+    }
+}
+
+//ico-country
+.c-flag{
+	overflow: hidden;
+	display: inline-block;
+	width: toRem(20px);
+	height: toRem(20px);
+	margin-right: toRem(10px);
+	vertical-align: middle;
+	border: toRem(1px) solid $CBg2;
+	border-radius: 100%;
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color:$CBg3;
+}

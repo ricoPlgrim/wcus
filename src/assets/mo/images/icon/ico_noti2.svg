@@ -1,0 +1,17 @@
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 278">
+<circle id="Ellipse 32" cx="26" cy="26" r="26" fill="#EEEEEE"/>
+<g id="notifications_active">
+<mask id="mask0_5825_1708" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="9" width="35" height="34">
+<rect id="Bounding box" x="8.99987" y="9" width="34" height="34" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_5825_1708)">
+<g id="Group 280">
+<path id="Vector" d="M38 34.8432H14L16.076 30.3696V19.5211L26.0566 13L36.2 19.4334V30.3127L38 34.8432Z" fill="white" stroke="#231F20"/>
+<path id="Vector_2" d="M26.1903 39C29.6223 39 32.4046 37.1394 32.4046 34.8433H19.976C19.976 37.1394 22.7583 39 26.1903 39Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+</g>
+<rect id="Alarm_Circle" x="36" y="11" width="4" height="4" rx="2" fill="#FF563F"/>
+</g>
+</g>
+</g>
+</svg>

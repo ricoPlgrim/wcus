@@ -1,0 +1,238 @@
+@charset "UTF-8";
+@use "sass:math";
+
+//말줄임
+@mixin text-hidden($line: 1, $lineHeight: 16, $auto: null) {
+	display: -webkit-box;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: toRem(calc(($lineHeight * $line) / $line));
+	//word-break: break-all;
+	white-space: initial;
+	@if $auto ==auto {
+		//영역 자동
+		max-height: toRem($lineHeight * $line);
+	}
+
+	@else {
+		//처음부터 영역잡히게
+		height: toRem($lineHeight * $line);
+	}
+}
+
+@mixin text-hidden-one() {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+//svg icon : 컬러없는 아이콘 색변경 잦을때
+@mixin svgUrl($color: #fff, $value: null, $url: null){
+@if $value ==null {
+	-webkit-mask: url($url) no-repeat 50% 50%;
+	mask: url($url) no-repeat 50% 50%;
+}
+
+@else {
+	-webkit-mask: url(../images/icon/#{$value}.svg) no-repeat 50% 50%; 
+	mask: url(../images/icon/#{$value}.svg) no-repeat 50% 50%;
+}
+
+-webkit-mask-size: contain;
+mask-size: contain;
+background-color: $color;
+}
+
+@mixin svg($value, $width: 16, $height: 16) {
+	display: inline-block;
+	width: $width;
+	height: $height;
+	vertical-align: middle;
+	background-image: url(../images/icon/#{$value}.svg);
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+// 노치 대응 기기 안전영역 환경변수 : safe-area
+//  safe-area-inset 처리
+//  $key - 넣을곳(padding-top, marin-bottom, ...)
+//  $direction - 방향(top, right, bottom, left)
+//  $value - 더해질 값(생략가능)
+@mixin safe($key, $direction, $value: 0) {
+	#{$key}: $value;
+
+	@if ($value > 0) {
+		#{$key}: calc(#{$value} + env(safe-area-inset-#{$direction}));
+	}
+
+	@else if ($value < 0) {
+		#{$key}: calc((#{-$value} + env(safe-area-inset-#{$direction})) * -1);
+	}
+
+	@else {
+		#{$key}: env(safe-area-inset-#{$direction});
+	}
+}
+
+//정렬
+@mixin abs($abs: c) {
+	position: absolute;
+
+	@if $abs ==h {
+		//horizontal 수평
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	@else if $abs ==v {
+		//vertical 수직
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	@else if $abs ==c {
+		//center 중앙
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+// 숨김 처리
+@mixin hidden {
+	position: absolute;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+//벤더 프리픽스(속성,속성값,브라우저 추가)
+@mixin prefix($property, $value, $prefixes: ()) {
+	@each $prefix in $prefixes {
+		#{'-' + $prefix + '-' + $property}: $value;
+	}
+
+	#{$property}: $value;
+}
+
+// 박스
+@mixin box($bg, $brd: 20, $pad: 0) {
+	background: $bg;
+	border-radius: $brd;
+	padding: $pad;
+}
+
+// PX → REM 함수
+// ex. font-size: rem(20px); padding: rem(30px 0 20px 10px)
+$rem-baseline: 16px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+
+@function rem-separator($list, $separator: false) {
+	@if $separator=='comma' or $separator=='space' {
+		@return append($list, null, $separator);
+	}
+
+	@if function-exists('list-separator')==true {
+		@return list-separator($list);
+	}
+
+	$test-list: (
+	);
+
+@each $item in $list {
+	$test-list: append($test-list, $item, space);
+}
+
+@return if($test-list ==$list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+	font-size: math.div($zoom, 16px) * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+	$result: ();
+	$separator: rem-separator($values);
+
+	@each $value in $values {
+		@if type-of($value)=='number' and unit($value)=='rem' and $to=='px' {
+			$result: append($result,
+				math.div($value, 1rem) * $rem-baseline,
+				$separator );
+		}
+
+		@else if type-of($value)=='number' and unit($value)=='px' and $to=='rem'
+
+			{
+			$result: append($result,
+				math.div($value, $rem-baseline) * 1rem,
+				$separator );
+		}
+
+		@else if type-of($value)=='list' {
+			$value-separator: rem-separator($value);
+			$value: rem-convert($to, $value...);
+			$value: rem-separator($value, $value-separator);
+			$result: append($result, $value, $separator);
+		}
+
+		@else {
+			$result: append($result, $value, $separator);
+		}
+	}
+
+	@return if(length($result)==1, nth($result, 1), $result);
+}
+
+@function toRem($values...) {
+	@if $rem-px-only {
+		@return rem-convert(px, $values...);
+	}
+
+	@else {
+		@return rem-convert(rem, $values...);
+	}
+}
+
+@mixin toRem($properties, $values...) {
+	@if type-of($properties)=='map' {
+		@each $property in map-keys($properties) {
+			@include toRem($property, map-get($properties, $property));
+		}
+	}
+
+	@else {
+		@each $property in $properties {
+			@if $rem-fallback or $rem-px-only {
+				#{$property}: rem-convert(px, $values...);
+			}
+
+			@if not $rem-px-only {
+				#{$property}: rem-convert(rem, $values...);
+			}
+		}
+	}
+}
+
+//animation
+@mixin animation ($name, $duration, $timing-function: null, $delay: null, $count: null) {
+	animation-delay: $delay;
+	animation-duration: $duration;
+	animation-timing-function: $timing-function;
+	animation-name: $name;
+	animation-iteration-count: $count
+}
+
+@mixin keyframe ($animation_name) {
+	@keyframes #{$animation_name} {
+		@content;
+	}
+}

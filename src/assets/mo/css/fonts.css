@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+@font-face{
+    font-family :'Jost';
+    /* font-display: swap; */
+    src: url('@/assets/mo/fonts/Jost-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face{
+    font-family :'Jost';
+    /* font-display: swap; */
+    src: url('@/assets/mo/fonts/Jost-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face{
+    font-family :'Jost';
+    /* font-display: swap; */
+    src: url('@/assets/mo/fonts/Jost-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face{
+    font-family :'Jost';
+    /* font-display: swap; */
+    src: url('@/assets/mo/fonts/Jost-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face{
+    font-family :'Jost';
+    /* font-display: swap; */
+    src: url('@/assets/mo/fonts/Jost-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
