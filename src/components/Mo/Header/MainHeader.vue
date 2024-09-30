@@ -153,12 +153,13 @@ const onScrollDown = (scrollTop: number) => {
     }
   }
 
- // 스크롤 값이 0보다 크면 topBannerRef에 'up' 클래스 추가
- if (scrollTop > 0 && topBannerRef.value?.$el && topBannerHeight.value !== null && topBannerHeight.value > 0 ) {
-    const bannerElement = topBannerRef.value.$el;
+
+  if (scrollTop > 0 && topBannerRef.value && topBannerHeight.value !== null && topBannerHeight.value > 0) {
+    const bannerElement = topBannerRef.value.$el as HTMLElement;
     // topBannerRef의 margin-top을 -offsetHeight로 설정
     bannerElement.style.marginTop = `-${bannerElement.offsetHeight}px`;
-  } 
+  }
+
 };
 
 // 스크롤 업 이벤트 핸들러
@@ -169,10 +170,12 @@ const onScrollUp = (scrollTop: number) => {
     headerElement.value.classList.remove('down'); // 헤더 아래로 이동 제거
 
     // topBannerRef에 'up' 클래스 제거
-    if (topBannerRef.value?.$el && topBannerHeight.value !== null && topBannerHeight.value > 0) {
-      const bannerElement = topBannerRef.value.$el;
+    if (topBannerRef.value && topBannerHeight.value !== null && topBannerHeight.value > 0) {
+      const bannerElement = topBannerRef.value.$el as HTMLElement;
       // topBannerRef의 margin-top을 0으로 설정
-      bannerElement.style.marginTop = '0';
+      if (bannerElement) {
+        bannerElement.style.marginTop = '0';
+      }
     }
   }
 
@@ -220,7 +223,8 @@ const showSearchLayer = () => {
 
   // TopBanner에 클래스 추가 탑배너가 있을경우 
   if (topBannerRefVisible.value && topBannerRef.value?.$el) {
-    topBannerRef.value.$el.classList.add('top-banner-active');
+    // 배너를 숨기는 로직
+    topBannerRef.value.$el.style.display = 'none';  // 배너를 숨김
   }
 
 
@@ -236,7 +240,9 @@ const hideSearchLayer = () => {
 
   // TopBanner에 클래스 제거 
   if (topBannerRefVisible.value && topBannerRef.value?.$el) {
-    topBannerRef.value.$el.classList.remove('top-banner-active');
+    if (topBannerRef.value?.$el) {
+        topBannerRef.value.$el.style.display = 'block';  // 배너를 다시 보이게 함
+    }
   }
 
   const appElement = document.getElementById('app');

@@ -36,6 +36,7 @@ const props = defineProps<{
 const emit = defineEmits<{
     (e: 'updateHeight', height: number): void;  // 탑 배너 높이값을 부모 컴포넌트로 전달
     (e: 'updateVisibility', isVisible: boolean): void;  // 탑 배너가 닫혔는지 여부를 부모 컴포넌트로 전달
+    (e: 'passTopBannerElement', el: HTMLElement | null): void; // 부모에게 ref 전달  
 }>();
 
 // 배너 요소에 대한 참조
@@ -50,6 +51,7 @@ const closeBanner = () => {
     emit('updateVisibility', isVisible.value);  // 부모 컴포넌트에 배너가 닫혔음을 알림
     // 배너가 닫힐 때 부모 컴포넌트의 높이 값을 null로 초기화
     emit('updateHeight', 0);  // 배너 높이를 0으로 전달
+    
 };
 
 // 배너가 렌더링된 후 배너 높이값을 가져와 부모 컴포넌트로 전달
@@ -57,6 +59,9 @@ onMounted(() => {
     if (topBannerElement.value) {
         const bannerHeight = topBannerElement.value.clientHeight;  // 배너 높이값 계산
         emit('updateHeight', bannerHeight);  // 계산된 높이값을 부모 컴포넌트로 전달
+
+        // 부모 컴포넌트에 topBannerElement 전달
+        emit('passTopBannerElement', topBannerElement.value);
     }
 });
 
