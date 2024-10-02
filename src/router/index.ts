@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import GuidePage from '@/pages/Guide.vue'; // 라우트에 사용될 컴포넌트.
 import UiGuide from '@/pages/mo/guide/GuideIndex.vue';
 import ColorGuide from '@/pages/mo/guide/Color/ColorGuide.vue';
@@ -182,8 +182,8 @@ const routes: Array<RouteRecordRaw> = [
 
 // Vue Router 인스턴스를 생성.
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL), // HTML5 History 모드를 사용하여 브라우저의 URL 히스토리를 관리
-  routes, // 위에서 정의한 라우트 배열을 사용.
+  history: createWebHashHistory(process.env.BASE_URL), // Hash 모드를 사용하여 브라우저의 URL을 관리
+  routes, // 정의한 라우트 배열을 사용.
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
