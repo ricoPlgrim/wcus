@@ -30,7 +30,7 @@
           <span class="hidden">wish</span>
         </button>
         <div class="product-cont">
-          <router-link to="/">
+          <router-link :to="slide.link">
             <div class="product-model">
               <div class="img-box">
                 <img :src="slide.imageSrc" :alt="slide.altText" />
@@ -102,6 +102,7 @@ interface Slide {
   colors?: number;
   isWished: boolean;
   soldOut?: boolean;
+  link?: string;
 
 }
 

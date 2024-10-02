@@ -2,7 +2,7 @@
     <section>
         <div class="new-wrap">
             <!-- 타이틀, 카운트, 링크를 포함한 TitleWrap 컴포넌트 -->
-            <TitleWrap title="What's New" countNum="502" linkHref="#" linkText="View More" />
+            <TitleWrap title="What's New" countNum="502" linkHref="javascript:;" linkText="View More" />
             <!-- 추천 슬라이드들을 표시하는 SwiperComponent 컴포넌트 -->
             <SwiperComponent type="recom" :loop="false" :showBottomInfo="true" :slides="recommendSlides" />
         </div>
@@ -27,6 +27,7 @@ const recommendSlides = ref([
         originalPrice: '$400.00',
         specialPrice: '$245.00',
         sale: '10%',
+        link: '/productView'
     },
     {
         imageSrc: noImg,
@@ -36,6 +37,7 @@ const recommendSlides = ref([
         originalPrice: '$400.00',
         specialPrice: '$245.00',
         sale: '10%',
+        link: '/productView'
     },
     {
         imageSrc: slideImage2,
@@ -45,6 +47,7 @@ const recommendSlides = ref([
         originalPrice: '$400.00',
         specialPrice: '$245.00',
         sale: '10%',
+        link: '/productView'
     },
     {
         imageSrc: noImg,
@@ -54,8 +57,8 @@ const recommendSlides = ref([
         originalPrice: '$400.00',
         specialPrice: '$245.00',
         sale: '10%',
+        link: '/productView'
     },
-    // 다른 슬라이드 추가
 ]);
 
 </script>

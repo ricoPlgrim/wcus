@@ -84,7 +84,7 @@ const visualItem = ref<VisualItem[]>([
     alt: 'visual',
     title: 'SPRING BIG SALE<br />2023 EVENT',
     subtitle: 'SS Products at Weekly Special Price',
-    link: '/'
+    link: '/displaya'
   },
   {
     type: 'video',
@@ -92,7 +92,7 @@ const visualItem = ref<VisualItem[]>([
     src: 'https://player.vimeo.com/video/249908774',
     title: 'SPRING BIG SALE<br />2023 EVENT',
     subtitle: 'SS Products at Weekly Special Price',
-    link: '#',
+    link: '/displayascroll',
     alt: '' // Optional, but should be included to match the type
   },
   {
@@ -101,7 +101,7 @@ const visualItem = ref<VisualItem[]>([
     alt: 'visual',
     title: 'SPRING BIG SALE<br />2023 EVENT',
     subtitle: 'SS Products at Weekly Special Price',
-    link: '#'
+    link: '/displayascroll',
   },
 
   {
@@ -110,17 +110,17 @@ const visualItem = ref<VisualItem[]>([
     alt: 'visual',
     title: 'SPRING BIG SALE<br />2023 EVENT',
     subtitle: 'SS Products at Weekly Special Price',
-    link: '#'
+    link: '/displayb'
   }
 ]);
 
 
 // GNB 메뉴 아이템
 const menuItems = ref([
-  { name: 'WOMEN', link: '#' },
-  { name: 'MEN', link: '#' },
-  { name: 'K-BEAUTY', link: '#' },
-  { name: 'LIFE', link: '#' },
+  { name: 'WOMEN', link: 'javascript:;' },
+  { name: 'MEN', link: 'javascript:;' },
+  { name: 'K-BEAUTY', link: 'javascript:;' },
+  { name: 'LIFE', link: 'javascript:;' },
 ]);
 
 
