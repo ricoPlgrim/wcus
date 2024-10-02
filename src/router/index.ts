@@ -182,7 +182,7 @@ const routes: Array<RouteRecordRaw> = [
 
 // Vue Router 인스턴스를 생성.
 const router = createRouter({
-  history: createWebHashHistory(process.env.BASE_URL), // Hash 모드를 사용하여 브라우저의 URL을 관리
+  history: createWebHashHistory(), // Hash 모드를 사용하여 브라우저의 URL을 관리
   routes, // 정의한 라우트 배열을 사용.
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
