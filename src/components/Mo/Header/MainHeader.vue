@@ -232,6 +232,7 @@ const showSearchLayer = () => {
   if (appElement) {
     appElement.style.overflow = 'hidden';
     appElement.style.height = '100vh';
+    appElement.style.height = '100dvh';
   }
 };
 
@@ -261,6 +262,7 @@ onMounted(() => {
   if (appElement) {
     appElement.style.overflow = isSearchLayerVisible.value ? 'hidden' : '';
     appElement.style.height = isSearchLayerVisible.value ? '100vh' : '';
+    appElement.style.height = isSearchLayerVisible.value ? '100dvh' : '';
   }
 
   //헤더 초기 스타일 설정
