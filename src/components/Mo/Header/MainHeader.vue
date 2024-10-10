@@ -4,7 +4,7 @@
     :showSearchButton="showSearchButton" :showShareButton="showShareButton" :showCartButton="showCartButton"
     :showHomeButton="showHomeButton" @openSearch="showSearchLayer" @updateVisibility="handleBannerVisibility" />
   <!-- 헤더 부분, 탑배너 가시성 상태에 따라 클래스 추가 및 배경색 설정 -->
-  <header class="header-wrap" :class="{ 'is-topbanner2': topBannerRefVisible }"
+  <header class="header-wrap"   :class="topBannerRefVisible && bannerStatus !== 'closed' && topBannerRef ? 'is-topbanner2' : ''"
     :style="{ backgroundColor: headerBgColor }" ref="headerElement" v-if="!isSearchLayerVisible">
     <h1 class="logo">
       <router-link to="/main" class="ico-logo"><span class="hidden">WConcept</span></router-link>
@@ -119,9 +119,22 @@ const handleBannerHeight = (height: number) => {
   topBannerHeight.value = height;
 };
 
-// 탑배너 가시성 상태를 업데이트하는 함수
+ // 로컬 스토리지에서 'topbanner' 상태 확인
+ const bannerStatus = ref<string | null>(null);
+
+ // 탑배너 가시성 상태를 업데이트하는 함수
 const handleBannerVisibility = (isVisible: boolean) => {
   topBannerRefVisible.value = isVisible;
+  if (!isVisible) {
+        // 로컬 스토리지에 배너 닫힘 상태와 만료 시간 저장
+        const expirationTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 24시간 뒤
+        const bannerData = {
+            status: 'closed',
+            expiration: expirationTime,
+        }
+        localStorage.setItem('topbanner', JSON.stringify(bannerData)); // 로컬 스토리지에 저장
+        bannerStatus.value = 'closed';
+    }
 };
 
 
@@ -154,10 +167,12 @@ const onScrollDown = (scrollTop: number) => {
   }
 
 
-  if (scrollTop > 0 && topBannerRef.value && topBannerHeight.value !== null && topBannerHeight.value > 0) {
+  // 배너 엘리먼트가 존재할 경우에만 marginTop 설정
+  if (topBannerRef.value && topBannerRef.value.$el && topBannerHeight.value !== null && topBannerHeight.value > 0) {
     const bannerElement = topBannerRef.value.$el as HTMLElement;
-    // topBannerRef의 margin-top을 -offsetHeight로 설정
-    bannerElement.style.marginTop = `-${bannerElement.offsetHeight}px`;
+    if (bannerElement && topBannerRefVisible.value == true ) {
+      bannerElement.style.marginTop = `-${bannerElement.offsetHeight}px`;
+    }
   }
 
 };
@@ -170,10 +185,10 @@ const onScrollUp = (scrollTop: number) => {
     headerElement.value.classList.remove('down'); // 헤더 아래로 이동 제거
 
     // topBannerRef에 'up' 클래스 제거
-    if (topBannerRef.value && topBannerHeight.value !== null && topBannerHeight.value > 0) {
+    if (topBannerRef.value && topBannerRef.value.$el && topBannerHeight.value !== null && topBannerHeight.value > 0) {
       const bannerElement = topBannerRef.value.$el as HTMLElement;
-      // topBannerRef의 margin-top을 0으로 설정
-      if (bannerElement) {
+      // 배너 엘리먼트가 존재할 경우에만 marginTop 설정
+      if (bannerElement &&  topBannerRefVisible.value == true ) {
         bannerElement.style.marginTop = '0';
       }
     }
@@ -257,6 +272,21 @@ const hideSearchLayer = () => {
 
 // 컴포넌트가 마운트될 때 실행되는 로직
 onMounted(() => {
+    // 로컬 스토리지에서 'topbanner' 상태 확인
+  const bannerData = localStorage.getItem('topbanner');
+    if (bannerData) {
+        const parsedData = JSON.parse(bannerData);
+        const currentTime = new Date().getTime();
+
+        // 만료 시간이 지나지 않았으면 배너를 닫은 상태로 유지
+        if (parsedData.status === 'closed' && parsedData.expiration > currentTime) {
+          topBannerRefVisible.value = false; // 배너가 닫힌 상태라면 가시성을 false로 설정
+        } else {
+            // 만료 시간이 지났다면 로컬 스토리지에서 값을 제거
+            localStorage.removeItem('topbanner');
+        }
+    }
+
   const appElement = document.getElementById('app');
   navGnbElement.value = document.querySelector('.gnb-wrap ');
   if (appElement) {

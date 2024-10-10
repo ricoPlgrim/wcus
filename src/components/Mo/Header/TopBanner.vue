@@ -51,7 +51,16 @@ const closeBanner = () => {
     emit('updateVisibility', isVisible.value);  // 부모 컴포넌트에 배너가 닫혔음을 알림
     // 배너가 닫힐 때 부모 컴포넌트의 높이 값을 null로 초기화
     emit('updateHeight', 0);  // 배너 높이를 0으로 전달
-    
+        // 현재 시간을 기준으로 24시간 뒤의 시간을 계산
+        const expirationTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+    const bannerData = {
+        status: 'closed',
+        expiration: expirationTime,
+    };
+
+    // 로컬 스토리지에 배너 상태와 만료 시간 저장
+    localStorage.setItem('topbanner', JSON.stringify(bannerData));
+
 };
 
 // 배너가 렌더링된 후 배너 높이값을 가져와 부모 컴포넌트로 전달
@@ -62,6 +71,20 @@ onMounted(() => {
 
         // 부모 컴포넌트에 topBannerElement 전달
         emit('passTopBannerElement', topBannerElement.value);
+    }
+
+    const bannerData = localStorage.getItem('topbanner');
+    if (bannerData) {
+        const parsedData = JSON.parse(bannerData);
+        const currentTime = new Date().getTime();
+
+        // 만료 시간이 지나지 않았으면 배너를 닫은 상태로 유지
+        if (parsedData.status === 'closed' && parsedData.expiration > currentTime) {
+            isVisible.value = false; // 배너가 닫힌 상태라면 가시성을 false로 설정
+        } else {
+            // 만료 시간이 지났다면 로컬 스토리지에서 값을 제거
+            localStorage.removeItem('topbanner');
+        }
     }
 });
 
