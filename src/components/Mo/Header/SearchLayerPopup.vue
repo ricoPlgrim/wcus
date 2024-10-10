@@ -69,7 +69,7 @@
                         </ul>
                     </div>
                     <div class="search-results">
-                        <router-link to="">See All Results</router-link>
+                        <router-link to="/">See All Results</router-link>
                     </div>
                     <div class="swiper-conents">
                         <SwiperComponent type="recom" :loop="false" :showBottomInfo="true"  :slides="recommendSlides" />
@@ -119,6 +119,7 @@ const toggleSaleOnly = () => {
 };
 
 
+//데이터 슬라이드 정의
 const recommendSlides = ref([
     {
         imageSrc: slideImage2,
@@ -128,6 +129,7 @@ const recommendSlides = ref([
         originalPrice: '$400.00',
         specialPrice: '$245.00',
         sale: '10%',
+        link: '/productView'
     },
     {
         imageSrc: slideImage3,
@@ -137,6 +139,7 @@ const recommendSlides = ref([
         originalPrice: '$400.00',
         specialPrice: '$245.00',
         sale: '10%',
+        link: '/productView'
     },
     {
         imageSrc: slideImage2,
@@ -146,6 +149,7 @@ const recommendSlides = ref([
         originalPrice: '$400.00',
         specialPrice: '$245.00',
         sale: '10%',
+        link: '/productView'
     },
     {
         imageSrc: slideImage3,
@@ -155,9 +159,11 @@ const recommendSlides = ref([
         originalPrice: '$400.00',
         specialPrice: '$245.00',
         sale: '10%',
+        link: '/productView'
     },
-    // 다른 슬라이드 추가
 ]);
+
+
 const emit = defineEmits(['close']);
 const closeSearchLayer = () => {
     emit('close');
